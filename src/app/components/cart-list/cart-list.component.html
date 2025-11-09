@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>🛒 Cart List</h2>
+
+  <div *ngIf="loading">Loading carts...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <ul *ngIf="!loading && carts.length" class="cart-list">
+    <li *ngFor="let cart of carts">
+      <a [routerLink]="['/cart', cart.id]">
+        Cart #{{ cart.id }} — Total: {{ cart.total | currency:'INR' }}
+      </a>
+    </li>
+  </ul>
+
+  <div *ngIf="!loading && !carts.length">No carts found.</div>
+</div>

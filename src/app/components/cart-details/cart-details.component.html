@@ -1,0 +1,9 @@
+<ul>
+  <li *ngFor="let product of cart.products">
+    {{ product.title }} — 
+    ₹{{ product.price | discount:product.discountPercentage | number:'1.2-2' }}
+    (After Discount)  
+    — Original: ₹{{ product.price }} × {{ product.quantity }}  
+    (Discount: {{ product.discountPercentage }}%)
+  </li>
+</ul>
